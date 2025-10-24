@@ -147,30 +147,33 @@
     
     /* Añadido: Espacio visual elegante después del header */
     .hero-img {
-      width: 100%;
-      max-height: 420px;
-      overflow: hidden;
-      text-align: center;
-      background: #fff;
-      margin-bottom: 2rem;
-    }
-    .hero-img img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      max-height: 420px;
-      border-radius: 0 0 32px 32px;
-      box-shadow: 0 4px 32px rgba(34,59,107,0.18);
-    }
-    /* Imagen en servicios */
-    .services-img {
-      width: 90%;
-      max-width: 700px;
-      margin: 1.5rem auto 1rem auto;
-      display: block;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(34,59,107,0.08);
-    }
+    width: 100%;
+    max-height: 420px;
+    overflow: hidden;
+    text-align: center;
+    background: #fff;
+    margin-bottom: 2rem;
+  }
+  .hero-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 420px;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 4px 32px rgba(34,59,107,0.18);
+  }
+  .services-img {
+    width: 98%; /* Más ancha */
+    max-width: 900px; /* Mayor límite */
+    min-width: 350px;
+    aspect-ratio: 16/7; /* Proporción más horizontal */
+    margin: 1.5rem auto 1rem auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 28px rgba(34,59,107,0.10);
+    object-fit: cover;
+  }
+
   </style>
 </head>
 <body>
@@ -186,10 +189,11 @@
   </header>
 
   <!-- OPCIÓN 1: Imagen principal (hero) bajo el header -->
+<!-- Imagen bajo el header - imagen generada de la IA -->
   <div class="hero-img">
-    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/70cb875d-749e-4d10-a59f-238c042eb558.png" alt="Camión de carga moderno rojo y blanco" />
+    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/1db6a87a-f36a-4e0c-97cf-b4fc545b7b7e.png" alt="Container trucks and yellow reach stacker in port at sunrise" />
   </div>
-
+  
   <section id="about" class="about-company">
     <div class="about-title">Nuestra Historia</div>
     <p>
@@ -200,8 +204,9 @@
     <div class="about-title">Servicios</div>
     
     <!-- OPCIÓN 2: Imagen antes de las tarjetas de servicios -->
-    <img class="services-img" src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/70cb875d-749e-4d10-a59f-238c042eb558.png" alt="Camión moderno de la empresa" />
-    
+     <!-- Imagen antes de Servicios - truck2.jpg, más ancha! -->
+    <img class="services-img" src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/70cb875d-749e-4d10-a59f-238c042eb558.png" alt="Camión de carga moderno rojo y blanco" />
+
     <div class="services">
       <div class="service-card">
         <h3>Transporte de carga</h3>
