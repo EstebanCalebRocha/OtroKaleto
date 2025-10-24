@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Transporte Dorado — Soluciones de Transporte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tipografía elegante Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- GSAP para animaciones (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.3/dist/gsap.min.js"></script>
+  <style>
+    :root {
+      --gold: #d4af37;
+      --dark-blue: #223b6b;
+      --light-blue: #e5eefc;
+      --gray: #f7f7f7;
+      --black: #181925;
+      --shadow: 0 6px 24px rgba(34,59,107,0.10);
+    }
+    body {
+      background: var(--gray);
+      color: var(--black);
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, var(--dark-blue) 70%, var(--gold) 100%);
+      color: #fff;
+      padding: 3rem 2rem 2rem 2rem;
+      box-shadow: var(--shadow);
+      border-bottom-left-radius: 36px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      font-weight: 700;
+      color: var(--gold);
+      text-shadow: 1px 1px 15px var(--dark-blue);
+      margin-bottom: .5rem;
+    }
+    header h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    nav {
+      margin-top: 2rem;
+      display: flex; gap: 30px;
+    }
+    nav a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      transition: color .2s;
+    }
+    nav a:hover { color: #fff; }
+    section {
+      padding: 2rem; max-width: 1200px; margin: 0 auto;
+    }
+    .services {
+      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+    }
+    .service-card {
+      background: var(--light-blue);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
+      width: 280px;
+      margin-bottom: 1rem;
+      text-align: center;
+      transition: transform 0.15s;
+    }
+    .service-card:hover { transform: scale(1.045); }
+    .service-card h3 {
+      color: var(--dark-blue);
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: .75rem;
+    }
+    .service-card p { font-size: 1rem; color: #222; }
+    .about-company, .contact-section {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+    .about-title {
+      color: var(--dark-blue); font-size: 1.45rem; font-weight: bold;
+      margin-bottom: .75rem;
+    }
+    .certifications {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .certification-item {
+      background: var(--gold);
+      color: var(--dark-blue);
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      box-shadow: 0 2px 8px rgba(34,59,107,0.09);
+      font-size: 0.95rem;
+      margin-top: .5rem;
+    }
+    .contact-section h2 {
+      color: var(--dark-blue);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: .5rem;
+    }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea {
+      border: 1.5px solid var(--dark-blue);
+      border-radius: 7px;
+      padding: .8rem;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus { box-shadow: 0 2px 12px var(--gold); outline: none; }
+    button {
+      background: linear-gradient(90deg,var(--gold),var(--dark-blue));
+      color: #fff;
+      padding: .9rem 2.5rem;
+      border: none;
+      border-radius: 7px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: .5rem;
+      transition: background .2s;
+    }
+    button:hover { background: linear-gradient(90deg,var(--dark-blue),var(--gold)); }
+    footer {
+      background: var(--dark-blue); color: var(--gold);
+      text-align: center; padding: 1.5rem;
+      border-top-right-radius: 36px;
+      font-size: 0.99rem;
+      margin-top: 2rem;
+    }
+    /* Animación con GSAP (al cargar la web) */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Transporte Dorado</h1>
+    <h2>Soluciones seguras y confiables para empresas y personas</h2>
+    <nav>
+      <a href="#about">Quiénes Somos</a>
+      <a href="#services">Servicios</a>
+      <a href="#certifications">Certificaciones</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+  <section id="about" class="about-company">
+    <div class="about-title">Nuestra Historia</div>
+    <p>
+      En <b>Transporte Dorado</b> ofrecemos servicios de transporte nacional e internacional con más de 20 años de experiencia. Nuestra flota moderna y equipo humano garantizan seguridad, eficiencia y satisfacción para clientes corporativos y particulares.
+    </p>
+  </section>
+  <section id="services">
+    <div class="about-title">Servicios</div>
+    <div class="services">
+      <div class="service-card">
+        <h3>Transporte de carga</h3>
+        <p>Soluciones para envíos voluminosos, rutas rápidas y seguras.</p>
+      </div>
+      <div class="service-card">
+        <h3>Transporte de pasajeros</h3>
+        <p>Viajes corporativos, turísticos y privados en unidades confortables.</p>
+      </div>
+      <div class="service-card">
+        <h3>Logística integral</h3>
+        <p>Gestión, trazabilidad y almacenamiento eficiente de mercancía.</p>
+      </div>
+    </div>
+  </section>
+  <section id="certifications" class="about-company">
+    <div class="about-title">Certificaciones</div>
+    <div class="certifications">
+      <div class="certification-item">ISO 9001:2015</div>
+      <div class="certification-item">Seguridad Vial</div>
+      <div class="certification-item">Operador Autorizado</div>
+      <div class="certification-item">Miembro de la Asociación Nacional de Transportistas</div>
+    </div>
+  </section>
+  <section id="contact" class="contact-section">
+    <h2>Contáctanos</h2>
+    <form>
+      <input type="text" placeholder="Nombre" required />
+      <input type="email" placeholder="Correo" required />
+      <textarea rows="5" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 Transporte Dorado S.A. | Todos los derechos reservados | contacto@transportedorado.com
+  </footer>
+  <script>
+    // Ejemplo animación GSAP
+    window.onload = () => {
+      gsap.from("header", { y: -50, opacity: 0, duration: 1.2 });
+      gsap.from(".about-company", { x: -100, opacity: 0, duration: 1, delay: .6 });
+      gsap.from(".service-card", {
+        scale: 0.8, opacity: 0, duration: .8, delay: 1.1, stagger: .3
+      });
+      gsap.from(".certifications .certification-item", {
+        y: 40, opacity: 0, duration: .7, delay: 1.4, stagger: .2
+      });
+      gsap.from("footer", { y: 40, opacity: 0, duration: .7, delay: 1.7 });
+    }
+  </script>
+</body>
+</html>
+
