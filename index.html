@@ -1,263 +1,717 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Transporte Dorado — Soluciones de Transporte</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Tipografía Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.3/dist/gsap.min.js"></script>
-  <style>
-    /* ... Todo el CSS igual al ejemplo anterior ... */
-    :root {
-      --gold: #d4af37;
-      --dark-blue: #223b6b;
-      --light-blue: #e5eefc;
-      --gray: #f7f7f7;
-      --black: #181925;
-      --shadow: 0 6px 24px rgba(34,59,107,0.10);
-    }
-    body {
-      background: var(--gray);
-      color: var(--black);
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin: 0; padding: 0;
-    }
-    header {
-      background: linear-gradient(90deg, var(--dark-blue) 70%, var(--gold) 100%);
-      color: #fff;
-      padding: 3rem 2rem 2rem 2rem;
-      box-shadow: var(--shadow);
-      border-bottom-left-radius: 36px;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.75rem;
-      letter-spacing: 2px;
-      line-height: 1.1;
-      font-weight: 700;
-      color: var(--gold);
-      text-shadow: 1px 1px 15px var(--dark-blue);
-      margin-bottom: .5rem;
-    }
-    header h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-      color: #fff;
-    }
-    nav {
-      margin-top: 2rem;
-      display: flex; gap: 30px;
-    }
-    nav a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
-      transition: color .2s;
-    }
-    nav a:hover { color: #fff; }
-    section {
-      padding: 2rem; max-width: 1200px; margin: 0 auto;
-    }
-    .services {
-      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
-    }
-    .service-card {
-      background: var(--light-blue);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 2rem 1.5rem;
-      width: 280px;
-      margin-bottom: 1rem;
-      text-align: center;
-      transition: transform 0.15s;
-    }
-    .service-card:hover { transform: scale(1.045); }
-    .service-card h3 {
-      color: var(--dark-blue);
-      font-weight: 700;
-      font-size: 1.15rem;
-      margin-bottom: .75rem;
-    }
-    .service-card p { font-size: 1rem; color: #222; }
-    .about-company, .contact-section {
-      background: #fff;
-      border-radius: 24px;
-      padding: 2.25rem 1.5rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-    .about-title {
-      color: var(--dark-blue); font-size: 1.45rem; font-weight: bold;
-      margin-bottom: .75rem;
-    }
-    .certifications {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-    }
-    .certification-item {
-      background: var(--gold);
-      color: var(--dark-blue);
-      font-weight: bold;
-      border-radius: 8px;
-      padding: 0.75rem 1.25rem;
-      box-shadow: 0 2px 8px rgba(34,59,107,0.09);
-      font-size: 0.95rem;
-      margin-top: .5rem;
-    }
-    .contact-section h2 {
-      color: var(--dark-blue);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      margin-bottom: .5rem;
-    }
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    input, textarea {
-      border: 1.5px solid var(--dark-blue);
-      border-radius: 7px;
-      padding: .8rem;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-    input:focus, textarea:focus { box-shadow: 0 2px 12px var(--gold); outline: none; }
-    button {
-      background: linear-gradient(90deg,var(--gold),var(--dark-blue));
-      color: #fff;
-      padding: .9rem 2.5rem;
-      border: none;
-      border-radius: 7px;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: .5rem;
-      transition: background .2s;
-    }
-    button:hover { background: linear-gradient(90deg,var(--dark-blue),var(--gold)); }
-    footer {
-      background: var(--dark-blue); color: var(--gold);
-      text-align: center; padding: 1.5rem;
-      border-top-right-radius: 36px;
-      font-size: 0.99rem;
-      margin-top: 2rem;
-    }
-    /* Animación con GSAP (al cargar la web) */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte Sogri - Transporte de Carga Pesada</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/N9K051QW/logo-sogri-1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    
-    /* Añadido: Espacio visual elegante después del header */
-    .hero-img {
-    width: 100%;
-    max-height: 420px;
-    overflow: hidden;
-    text-align: center;
-    background: #fff;
-    margin-bottom: 2rem;
-  }
-  .hero-img img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 420px;
-    border-radius: 0 0 32px 32px;
-    box-shadow: 0 4px 32px rgba(34,59,107,0.18);
-  }
-  .services-img {
-    width: 98%; /* Más ancha */
-    max-width: 900px; /* Mayor límite */
-    min-width: 350px;
-    aspect-ratio: 16/7; /* Proporción más horizontal */
-    margin: 1.5rem auto 1rem auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 28px rgba(34,59,107,0.10);
-    object-fit: cover;
-  }
+        :root {
+            --azul-oscuro: #001d43;
+            --rojo-profundo: #c2232b;
+            --morado-oscuro: #411943;
+            --granate-oscuro: #2b1c2c;
+            --verde-profesional: #499e6c;
+            --blanco: #ffffff;
+            --gris-claro: #f4f4f4;
+        }
 
-  </style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--morado-oscuro) 100%);
+            color: var(--blanco);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--rojo-profundo);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--granate-oscuro) 0%, var(--azul-oscuro) 50%, var(--morado-oscuro) 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.05" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%23ffffff" fill-opacity="0.05" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%23ffffff" fill-opacity="0.05" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>') repeat-x;
+            background-size: 120%;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position: 0 0; }
+            100% { background-position: 1200px 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-logo {
+            margin: 2rem 0;
+        }
+
+        .hero-logo img {
+            max-width: 400px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background-color: var(--gris-claro);
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--granate-oscuro) 100%);
+            color: var(--blanco);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--azul-oscuro);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rojo-profundo), var(--verde-profesional));
+            border-radius: 2px;
+        }
+
+        .section-dark .section-title {
+            color: var(--blanco);
+        }
+
+        .founder-quote {
+            background: linear-gradient(135deg, var(--rojo-profundo) 0%, var(--morado-oscuro) 100%);
+            color: var(--blanco);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-quote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50px;
+            font-size: 15rem;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .quote-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--verde-profesional);
+        }
+
+        .quote-author-title {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--blanco);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--rojo-profundo);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: var(--azul-oscuro);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-item {
+            color: var(--blanco);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
+        }
+
+        .value-item::before {
+            content: '✓';
+            color: var(--verde-profesional);
+            font-weight: 800;
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .certification-box {
+            background: var(--blanco);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .certification-box h3 {
+            color: var(--azul-oscuro);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .certification-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .basc-logo {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--gris-claro);
+            border-radius: 8px;
+        }
+
+        .clients-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem 4rem;
+            margin-top: 3rem;
+            padding: 2rem;
+        }
+
+        .client-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover {
+            transform: scale(1.1);
+        }
+
+        .client-logo {
+            max-width: 140px;
+            height: 70px;
+            object-fit: contain;
+            filter: grayscale(0%);
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover .client-logo {
+            filter: grayscale(0%) brightness(1.1);
+        }
+
+        .client-card h4 {
+            color: var(--azul-oscuro);
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .client-card p {
+            display: none;
+        }
+
+        .client-new {
+            border: 2px dashed var(--verde-profesional);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            background: rgba(73, 158, 108, 0.05);
+        }
+
+        .client-new h4 {
+            color: var(--verde-profesional);
+            font-size: 1rem;
+        }
+
+        .gallery-section {
+            padding: 5rem 2rem;
+            background: var(--gris-claro);
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-subsection {
+            margin-bottom: 4rem;
+        }
+
+        .gallery-subsection h3 {
+            font-size: 2rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            padding-left: 1rem;
+            border-left: 5px solid var(--rojo-profundo);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-placeholder {
+            background: var(--blanco);
+            border: 3px dashed var(--azul-oscuro);
+            border-radius: 8px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-oscuro);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-placeholder:hover {
+            background: rgba(0, 29, 67, 0.05);
+            border-color: var(--rojo-profundo);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--morado-oscuro) 100%);
+            color: var(--blanco);
+            padding: 5rem 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--verde-profesional);
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-card strong {
+            color: var(--verde-profesional);
+        }
+
+        .contact-card a {
+            color: var(--blanco);
+            text-decoration: underline;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        footer {
+            background: var(--granate-oscuro);
+            color: var(--blanco);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--verde-profesional);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-logo img {
+                max-width: 250px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .quote-text {
+                font-size: 1.3rem;
+            }
+
+            .content-grid,
+            .clients-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Transporte Dorado</h1>
-    <h2>Soluciones seguras y confiables para empresas y personas</h2>
-    <nav>
-      <a href="#about">Quiénes Somos</a>
-      <a href="#services">Servicios</a>
-      <a href="#certifications">Certificaciones</a>
-      <a href="#contact">Contacto</a>
-    </nav>
-  </header>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="https://i.postimg.cc/MTDf3DNK/logo-sogri-1.png" alt="Transporte Sogri Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#mision-vision">Misión y Visión</a></li>
+                    <li><a href="#valores">Valores</a></li>
+                    <li><a href="#certificaciones">Certificaciones</a></li>
+                    <li><a href="#clientes">Clientes</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- OPCIÓN 1: Imagen principal (hero) bajo el header -->
-<!-- Imagen bajo el header - imagen generada de la IA -->
-  <div class="hero-img">
-    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/1db6a87a-f36a-4e0c-97cf-b4fc545b7b7e.png" alt="Container trucks and yellow reach stacker in port at sunrise" />
-  </div>
-  
-  <section id="about" class="about-company">
-    <div class="about-title">Nuestra Historia</div>
-    <p>
-      En <b>Transporte Dorado</b> ofrecemos servicios de transporte nacional e internacional con más de 20 años de experiencia. Nuestra flota moderna y equipo humano garantizan seguridad, eficiencia y satisfacción para clientes corporativos y particulares.
-    </p>
-  </section>
-  <section id="services">
-    <div class="about-title">Servicios</div>
-    
-    <!-- OPCIÓN 2: Imagen antes de las tarjetas de servicios -->
-     <!-- Imagen antes de Servicios - truck2.jpg, más ancha! -->
-    <img class="services-img" src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/70cb875d-749e-4d10-a59f-238c042eb558.png" alt="Camión de carga moderno rojo y blanco" />
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>TRANSPORTE SOGRI</h1>
+            <p>Especialistas en Transporte de Carga Pesada</p>
+            <div class="hero-logo">
+                <img src="https://i.postimg.cc/MTDf3DNK/logo-sogri-1.png" alt="Transporte Sogri Logo">
+            </div>
+            <p>Más de 30 Años de Experiencia y Compromiso</p>
+        </div>
+    </section>
 
-    <div class="services">
-      <div class="service-card">
-        <h3>Transporte de carga</h3>
-        <p>Soluciones para envíos voluminosos, rutas rápidas y seguras.</p>
-      </div>
-      <div class="service-card">
-        <h3>Transporte de pasajeros</h3>
-        <p>Viajes corporativos, turísticos y privados en unidades confortables.</p>
-      </div>
-      <div class="service-card">
-        <h3>Logística integral</h3>
-        <p>Gestión, trazabilidad y almacenamiento eficiente de mercancía.</p>
-      </div>
-    </div>
-  </section>
-  <!-- ...Resto igual que código anterior... -->
-  <section id="certifications" class="about-company">
-    <div class="about-title">Certificaciones</div>
-    <div class="certifications">
-      <div class="certification-item">ISO 9001:2015</div>
-      <div class="certification-item">Seguridad Vial</div>
-      <div class="certification-item">Operador Autorizado</div>
-      <div class="certification-item">Miembro de la Asociación Nacional de Transportistas</div>
-    </div>
-  </section>
-  <section id="contact" class="contact-section">
-    <h2>Contáctanos</h2>
-    <form>
-      <input type="text" placeholder="Nombre" required />
-      <input type="email" placeholder="Correo" required />
-      <textarea rows="5" placeholder="Mensaje" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-  <footer>
-    &copy; 2025 Transporte Dorado S.A. | Todos los derechos reservados | contacto@transportedorado.com
-  </footer>
-  <script>
-    window.onload = () => {
-      gsap.from("header", { y: -50, opacity: 0, duration: 1.2 });
-      gsap.from(".hero-img", { scale: 0.85, opacity: 0, duration: .8, delay: .3 });
-      gsap.from(".about-company", { x: -100, opacity: 0, duration: 1, delay: .6 });
-      gsap.from(".services-img", { y: 40, opacity: 0, duration: .7, delay: 1 });
-      gsap.from(".service-card", {
-        scale: 0.8, opacity: 0, duration: .8, delay: 1.1, stagger: .3
-      });
-      gsap.from(".certifications .certification-item", {
-        y: 40, opacity: 0, duration: .7, delay: 1.4, stagger: .2
-      });
-      gsap.from("footer", { y: 40, opacity: 0, duration: .7, delay: 1.7 });
-    }
-  </script>
-</body>
-</html>
+    <section class="founder-quote">
+        <div class="quote-content">
+            <p class="quote-text">"NUESTRA EMPRESA SE HA DEDICADO A PROVEER UN SERVICIO DE CALIDAD ÓPTIMA. EL ÉXITO FINAL DEPENDE DE SATISFACER LAS NECESIDADES DE NUESTROS CLIENTES."</p>
+            <p class="quote-author">Israel Sosa</p>
+            <p class="quote-author-title">Fundador de Transporte Sogri</p>
+        </div>
+    </section>
+
+    <section id="historia" class="section">
+        <h2 class="section-title">Reseña Histórica</h2>
+        <div class="content-grid">
+            <div class="card">
+                <h3>Nuestra Fundación</h3>
+                <p>Transporte Sogri, fundada en 1987 y legalmente constituida el 27 de octubre de 1993, es una empresa familiar panameña con más de tres décadas de trayectoria y experiencia en transporte pesado y logística. Desde nuestros inicios, hemos mantenido una visión empresarial clara: ser líderes en el sector de transporte de carga pesada.</p>
+            </div>
+            <div class="card">
+                <h3>Consolidación Empresarial</h3>
+                <p>Hoy en día somos una empresa consolidada que cuenta con un equipo de 60 empleados altamente capacitados, distribuidos entre gerencia, administración, operaciones, conductores profesionales y mecánicos especializados.</p>
+            </div>
+            <div class="card">
+                <h3>Compromiso Familiar</h3>
+                <p>Mantenemos nuestros valores familiares mientras crecemos como organización. Cada miembro de nuestro equipo forma parte de la familia Sogri, trabajando unidos por un objetivo común: excelencia en el servicio.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="mision-vision" class="section section-alt">
+        <h2 class="section-title">Misión y Visión</h2>
+        <div class="content-grid">
+            <div class="card">
+                <h3>Nuestra Misión</h3>
+                <p>Contribuir al desarrollo integral de la provincia de Colón mediante la generación de empleos de calidad, disminuyendo el desempleo y promoviendo el crecimiento sostenible de nuestra región. Nos comprometemos a ser un motor de desarrollo económico y social para nuestras comunidades.</p>
+            </div>
+            <div class="card">
+                <h3>Nuestra Visión</h3>
+                <p>Ser la empresa líder en transporte de carga pesada reconocida por nuestro compromiso inquebrantable con la eficiencia, puntualidad y calidad excepcional en el comercio local e internacional. Aspiramos a establecer los más altos estándares de servicio en la industria logística panameña.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="valores" class="section section-dark">
+        <h2 class="section-title">Nuestros Valores Corporativos</h2>
+        <div class="values-grid">
+            <div class="value-item">Seguridad</div>
+            <div class="value-item">Calidad</div>
+            <div class="value-item">Productividad</div>
+            <div class="value-item">Satisfacción de Clientes</div>
+            <div class="value-item">Trabajo en Equipo</div>
+            <div class="value-item">Honradez</div>
+            <div class="value-item">Compromiso</div>
+            <div class="value-item">Responsabilidad</div>
+            <div class="value-item">Servicio Personalizado</div>
+        </div>
+    </section>
+
+    <section id="certificaciones" class="section">
+        <h2 class="section-title">Certificaciones Internacionales</h2>
+        <div class="certification-box">
+            <h3>Certificación BASC</h3>
+            <p><strong>Business Alliance for Secure Commerce</strong> - Garantía de seguridad internacional en todos nuestros procesos y cadena logística. Esta certificación promueve el control exhaustivo y la trazabilidad completa de las operaciones, blindaje ante riesgos y delitos, mejora continua de procesos, y cumplimiento de los más altos estándares internacionales de seguridad.</p>
+            
+            <div class="basc-logo">
+                <img src="https://www.wbasco.org/sites/default/files/logo.svg" alt="BASC Logo" style="max-width: 200px; height: auto; margin-bottom: 1rem;">
+                <p style="color: var(--rojo-profundo); font-weight: 700;">Certificación Internacional de Seguridad</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes" class="section section-alt">
+        <h2 class="section-title">Portafolio de Clientes Destacados</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #555; max-width: 900px; margin: 0 auto 3rem;">Empresas líderes confían en Transporte Sogri para sus necesidades de logística y transporte de carga pesada</p>
+        
+        <div class="clients-grid">
+            <div class="client-card">
+                <img src="https://images.seeklogo.com/logo-png/30/1/dhl-logo-png_seeklogo-300467.png" alt="DHL Express Logo" class="client-logo">
+                <h4>DHL Express</h4>
+            </div>
+            <div class="client-card">
+                <img src="https://cdn.brandfetch.io/idxL3usw6g/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1753436982169" alt="J. Cain & Co. Logo" class="client-logo">
+                <h4>J. Cain & Co.</h4>
+            </div>
+            <div class="client-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="Samsung Logo" class="client-logo">
+                <h4>Samsung</h4>
+            </div>
+            <div class="client-card">
+                <img src="https://creditosmundiales.com/wp-content/uploads/2020/06/logo-creditos-white.png" alt="Créditos Mundiales Logo" class="client-logo">
+                <h4>Créditos Mundiales</h4>
+            </div>
+            <div class="client-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/2560px-Sony_logo.svg.png" alt="Sony Logo" class="client-logo">
+                <h4>SONY</h4>
+            </div>
+            <div class="client-card">
+                <img src="https://www.trade.gov/sites/default/files/2022-02/Logo%20IPL%20Group%20chiquitooo.png" alt="IPL Group Logo" class="client-logo">
+                <h4>IPL Group</h4>
+            </div>
+            <div class="client-card">
+                <h4>Mercantil Zona Libre</h4>
+            </div>
+            <div class="client-card client-new">
+                <h4>+ Tu Empresa Aquí</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery-section">
+        <div class="gallery-container">
+            <h2 class="section-title">Galería de Imágenes</h2>
+            
+            <div class="gallery-subsection">
+                <h3>Galería de Patios</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-placeholder">
+                        Espacio para imagen de patio 1<br>
+                        <small>(Agregar imagen aquí)</small>
+                    </div>
+                    <div class="gallery-placeholder">
+                        Espacio para imagen de patio 2<br>
+                        <small>(Agregar imagen aquí)</small>
+                    </div>
+                    <div class="gallery-placeholder">
+                        Espacio para imagen de patio 3<br>
+                        <small>(Agregar imagen aquí)</small>
+                    </div>
